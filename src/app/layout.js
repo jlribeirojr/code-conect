@@ -1,12 +1,12 @@
-import { Prompt} from 'next/font/google'
-import { Aside } from "@/components/Aside";
+import Aside from "@/components/Aside";
+import { Prompt } from "next/font/google";
 import "./globals.css";
 
 const prompt = Prompt({
-  weight: ['400', '600'],
-  subsets: ['latin'],
-  display: 'swap',
-})
+  weight: ["400", "600"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata = {
   title: "Code Conect",
@@ -19,10 +19,9 @@ export default function RootLayout({ children }) {
       <body>
         <div className="app-container">
           <Aside />
-          {children}
+          <div className="main-content">{children}</div>
         </div>
       </body>
-      
     </html>
   );
 }
