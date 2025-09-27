@@ -1,19 +1,18 @@
 import Image from "next/image";
 import { Avatar } from "../Avatar";
-import Styles from "./cardpost.module.css";
+import styles from "./cardpost.module.css";
 import Link from "next/link";
 
-export const CardPost = ({ post }) => {
+export const CardPost = ({ post, highlight }) => {
   return (
-    <Link href={`/posts/${post.slug}`} className={Styles.Link}>
+    <Link href={`/posts/${post.slug}`} className={styles.Link}>
       <div>
-        <article className={Styles.card}>
-          <header className={Styles.header}>
-            <figure>
+         <article className={styles.card} style={{ width: highlight ? 993 : 486}}>
+          <header className={styles.header}>
+            <figure style={{ height: highlight ? 300 : 133}}>
               <Image
                 src={post.cover}
-                width={438}
-                height={133}
+                fill
                 alt={`Capa do post do titulo: ${post.title}`}
               />
             </figure>
@@ -23,7 +22,7 @@ export const CardPost = ({ post }) => {
             <p>{post.body}</p>
             texto
           </section>
-          <footer className={Styles.footer}>
+          <footer className={styles.footer}>
             <Avatar imageSrc={post.author.avatar} name={post.author.username} />
           </footer>
         </article>
